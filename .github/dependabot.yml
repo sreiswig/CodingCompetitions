@@ -1,0 +1,27 @@
+# Dependabot: GitHub Actions (weekly).
+#
+# This repo has no package manifests, so only workflow actions are tracked.
+# Actions are SHA-pinned, and GitHub sends no Dependabot alerts for SHA-pinned
+# actions, so version updates are the only signal they are falling behind.
+# Minor and patch bumps are grouped into one PR; majors are grouped (not
+# ignored, since an ignore rule also suppresses security updates) into a
+# separate PR for manual review.
+# Free-tier only — no paid GHAS / Dependency Review / larger runners.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      github-actions-minor-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+      github-actions-major:
+        patterns:
+          - "*"
+        update-types:
+          - "major"
